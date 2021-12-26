@@ -1,0 +1,154 @@
+:root {
+    --clr-change-1: hsl(338, 67%, 61%);
+    --clr-change-2: hsl(0, 60%, 64%);
+    --img1: url(https://picsum.photos/200/300);
+    --img2: url(https://picsum.photos/200/301);
+    --img3: url(https://picsum.photos/200/302);
+    --img4: url(https://picsum.photos/200/303);
+}
+
+@-webkit-keyframes coolborder {
+    50% {
+        border: 3px solid var(--clr-change-2);
+        box-shadow: 0px 0px 25px hsl(0 60% 64% /0.55);
+    }
+}
+
+@keyframes coolborder {
+    50% {
+        border: 3px solid var(--clr-change-2);
+        box-shadow: 0px 0px 25px hsl(0 60% 64% /0.55);
+    }
+}
+
+body {
+    background-color: hsl(205, 38%, 6%);
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+input#card1.flip-unflip::after {
+    background-image: var(--img1);
+}
+
+input#card2.flip-unflip::after {
+    background-image: var(--img2);
+}
+
+input#card3.flip-unflip::after {
+    background-image: var(--img3);
+}
+
+input#card4.flip-unflip::after {
+    background-image: var(--img4);
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        padding-top: 50px;
+        display: -ms-grid;
+        display: grid;
+        align-items: center;
+        grid-gap: 50px;
+    }
+}
+
+.flip-unflip {
+    position: relative;
+    margin: 130px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    vertical-align: middle;
+    transition-duration: 0.3s;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+}
+
+.flip-unflip:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.flip-unflip::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    width: 200px;
+    height: 300px;
+    border: 3px solid var(--clr-change-1);
+    box-shadow: 0px 0px 25px hsl(0 60% 64% /0.6);
+    border-radius: 5%;
+    background-image: url(https://i.ibb.co/xHLhwfT/What.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    transition: box-shadow 200ms linear, -webkit-transform 0.5s ease-in 500ms;
+    transition: transform 0.5s ease-in 500ms, box-shadow 200ms linear;
+    transition: transform 0.5s ease-in 500ms, box-shadow 200ms linear, -webkit-transform 0.5s ease-in 500ms;
+    -webkit-animation: coolborder 1s linear 0s infinite normal forwards;
+    animation: coolborder 1s linear 0s infinite normal forwards;
+
+}
+
+.flip-unflip:checked::before {
+    transition: -webkit-transform 0.5s ease-in;
+    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+}
+
+.flip-unflip:hover::before {
+    box-shadow: 0px 0px 25px hsl(0 60% 64% /1);
+}
+
+.flip-unflip::after {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    width: 200px;
+    height: 300px;
+    border: 3px solid var(--clr-change-1);
+    border-radius: 5%;
+    box-shadow: 0px 0px 25px hsl(0 60% 64% /0.6);
+    background-color: hsl(63, 82%, 43%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: box-shadow 200ms linear, -webkit-transform 0.5s ease-in;
+    transition: transform 0.5s ease-in, box-shadow 200ms linear;
+    transition: transform 0.5s ease-in, box-shadow 200ms linear, -webkit-transform 0.5s ease-in;
+    -webkit-animation: coolborder 1s linear 0s infinite normal forwards;
+    animation: coolborder 1s linear 0s infinite normal forwards;
+
+}
+
+.flip-unflip:checked::after {
+    transition: -webkit-transform 0.5s ease-in 0.5s;
+    transition: transform 0.5s ease-in 0.5s;
+    transition: transform 0.5s ease-in 0.5s, -webkit-transform 0.5s ease-in 0.5s;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.flip-unflip:hover::after {
+    box-shadow: 0px 0px 25px hsl(0 60% 64% /1);
+}
