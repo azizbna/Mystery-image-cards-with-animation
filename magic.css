@@ -91,7 +91,7 @@ input#card4.flip-unflip::after {
     border: 3px solid var(--clr-change-1);
     box-shadow: 0px 0px 25px hsl(0 60% 64% /0.6);
     border-radius: 5%;
-    background-image: url(https://i.ibb.co/xHLhwfT/What.jpg);
+    background-image: url(./What.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
